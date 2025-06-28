@@ -1,0 +1,10 @@
+fastapi
+uvicorn
+sqlalchemy
+pydantic
+python-dotenv
+alembic
+pytz
+pydantic[email]
+pytest
+httpx
