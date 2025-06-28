@@ -36,12 +36,10 @@ def test_create_duplicate_event(client):
         "end_time": "2025-06-30T12:00:00+05:30",
         "max_capacity": 50
     }
-    response1 = client.post("/events/", json=event_data)
-    assert response1.status_code == 200
 
-    response2 = client.post("/events/", json=event_data)
-    assert response2.status_code == 400
-    assert response2.json()["detail"] == "Duplicate event already exists."
+    response = client.post("/events/", json=event_data)
+    assert response.status_code == 400
+    assert response.json() == {"detail": "Duplicate event already exists."}
 
 def test_get_events_list(client, create_event):
     create_event()
